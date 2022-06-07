@@ -1,3 +1,4 @@
+from ast import Num
 from urllib.request import urlopen, Request
 from bs4 import BeautifulSoup
 import random
@@ -32,6 +33,7 @@ class DBTop250_Spider():
         self.page_num += 1
 
     def Parse_Book(self, book_url):
+        print("top" + str(self.top_num))
         print("book_url is: " + book_url)
         try:
             book_request = Request(book_url, headers=random.choice(self.headers))
@@ -68,5 +70,6 @@ class DBTop250_Spider():
 
 
 sp = DBTop250_Spider()
-for i in range(1, 11):
+for i in range(1, 200):
     sp.Parse_Page()
+print("ok")
